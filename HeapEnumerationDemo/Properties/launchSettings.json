@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "HeapEnumerationTests": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\git\\repos\\HeapEnumerationTests\\EnumerationTarget\\bin\\Debug\\net7.0\\EnumerationTarget.dmp\" \"C:\\Users\\leecu\\Downloads\\microsoft.diagnostics.dbgshim.win-x64.7.0.410101\\runtimes\\win-x64\\native\\dbgshim.dll\"",
+      "nativeDebugging": false
+    }
+  }
+}
