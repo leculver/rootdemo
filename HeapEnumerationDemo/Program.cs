@@ -1,8 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-// usage:  HeapEnumerationTests.exe c:\path\to\dump_file c:\path\to\dbgshim.dll
+// usage:  HeapEnumerationTests.exe c:\path\to\dump_file c:\path\to\dbgshim.dll (true|false)
 // if you need dbgshim.dll, grab it from the nuget package, eg:
 //          https://www.nuget.org/packages/Microsoft.Diagnostics.DbgShim.win-x64
+// the third parameter is whether to use the new DisableInteriorPointerDecoding behavior or not
 
 using HeapEnumerationTests;
 using Microsoft.Diagnostics.Runtime;
