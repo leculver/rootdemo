@@ -36,6 +36,21 @@ namespace HeapEnumerationTests
 
         }
 
+        public ICorDebugGCReferenceEnum2? GCReferenceEnum2
+        {
+            get
+            {
+                try
+                {
+                    return new ICorDebugGCReferenceEnum2(Self);
+                }
+                catch (InvalidCastException)
+                {
+                    return null;
+                }
+            }
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         private readonly unsafe struct ICorDebugGCReferenceEnumVtable
         {

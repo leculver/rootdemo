@@ -1,9 +1,24 @@
 {
   "profiles": {
-    "HeapEnumerationTests": {
+    "net7": {
       "commandName": "Project",
       "commandLineArgs": "\"C:\\git\\repos\\HeapEnumerationTests\\EnumerationTarget\\bin\\Debug\\net7.0\\EnumerationTarget.dmp\" \"C:\\Users\\leecu\\Downloads\\microsoft.diagnostics.dbgshim.win-x64.7.0.410101\\runtimes\\win-x64\\native\\dbgshim.dll\"",
       "nativeDebugging": false
+    },
+    "net8": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\git\\rootdemo\\EnumerationTarget\\bin\\Debug\\net8.0\\EnumerationTarget.dmp\" \"C:\\Users\\leecu\\Downloads\\microsoft.diagnostics.dbgshim.win-x64.7.0.410101\\runtimes\\win-x64\\native\\dbgshim.dll\" false",
+      "nativeDebugging": false
+    },
+    "net8_new_decode": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\git\\rootdemo\\EnumerationTarget\\bin\\Debug\\net8.0\\EnumerationTarget_new.dmp\" \"C:\\Users\\leecu\\Downloads\\microsoft.diagnostics.dbgshim.win-x64.7.0.410101\\runtimes\\win-x64\\native\\dbgshim.dll\" false",
+      "nativeDebugging": true
+    },
+    "net8_new_dontdecode": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\git\\rootdemo\\EnumerationTarget\\bin\\Debug\\net8.0\\EnumerationTarget_new.dmp\" \"C:\\Users\\leecu\\Downloads\\microsoft.diagnostics.dbgshim.win-x64.7.0.410101\\runtimes\\win-x64\\native\\dbgshim.dll\" true",
+      "nativeDebugging": true
     }
   }
 }

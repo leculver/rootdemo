@@ -34,9 +34,13 @@ namespace HeapEnumerationTests
 
             IFileLocator locator = clrInfo.DataTarget.FileLocator ?? throw new ArgumentException("clrInfo must have a valid FileLocator");
             IEnumerable<DebugLibraryInfo> matchingLibraries = clrInfo.DebuggingLibraries.Where(d => d.TargetArchitecture == GetArchitecture() && RuntimeInformation.IsOSPlatform(d.Platform));
-            
-            _dbiModulePath = GetMatchingLibrary(locator, matchingLibraries, DebugLibraryKind.Dbi);
+
             _dacModulePath = GetMatchingLibrary(locator, matchingLibraries, DebugLibraryKind.Dac);
+            string potentialDbi = Path.Combine(Path.GetDirectoryName(_dacModulePath)??"", "mscordbi.dll");
+            if (File.Exists(potentialDbi))
+                _dbiModulePath = potentialDbi;
+            else
+                _dbiModulePath = GetMatchingLibrary(locator, matchingLibraries, DebugLibraryKind.Dbi);
 
             VTableBuilder builder = AddInterface(IID_ICLRDebuggingLibraryProvider, validate: false);
             builder.AddMethod(new ProvideLibraryDelegate(ProvideLibrary));

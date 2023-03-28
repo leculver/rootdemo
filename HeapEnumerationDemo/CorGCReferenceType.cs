@@ -16,6 +16,7 @@
 
         CorReferenceStack = 0x80000001,
         CorReferenceFinalizer = 80000002,
+        CorReferenceStackInterior = 0x80000003,
 
         // Used for EnumHandles
         CorHandleStrongOnly = 0x1E3,

@@ -34,7 +34,6 @@ namespace HeapEnumerationTests
                 if (value == 0)
                     return false;
 
-                Release(value);
                 return true;
             }
         }
@@ -48,7 +47,6 @@ namespace HeapEnumerationTests
                 if (value == 0)
                     return false;
 
-                Release(value);
                 return true;
             }
         }
