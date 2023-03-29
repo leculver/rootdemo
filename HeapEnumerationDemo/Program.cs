@@ -8,7 +8,9 @@
 using HeapEnumerationTests;
 using Microsoft.Diagnostics.Runtime;
 using Microsoft.Diagnostics.Runtime.DacInterface;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
+
 
 bool disableInteriorPointers = bool.Parse(args[2]);
 
@@ -85,6 +87,7 @@ roots.Clear();
 
 Console.WriteLine("ClrMD:");
 
+
 foreach (ClrRoot root in runtime.Heap.EnumerateRoots())
 {
     Console.WriteLine($"{root.RootKind}\t{root.Address:x12} -> {root.Object:x12}");
@@ -95,6 +98,12 @@ foreach (ClrRoot root in runtime.Heap.EnumerateRoots())
         RootKind = root.RootKind.ToString(),
         ExtraData = root.IsInterior ? 1u : 0u
     });
+}
+
+foreach (ClrHandle handle in runtime.EnumerateHandles().Where(h => h.HandleKind == ClrHandleKind.Dependent))
+{
+    Console.WriteLine($"DEPENDENT -  {handle.Address:x} -> {handle.Dependent.Address:x}");
+
 }
 
 WriteRoots(roots, ".clrmd.txt");

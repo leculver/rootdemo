@@ -1,10 +1,15 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 internal unsafe class Program
 {
     private static void Main(string[] args)
     {
         BlockFQ();
+
+        ConditionalWeakTable<object, object> condWeak = new();
+        ConditionalSource source = new ConditionalSource();
+        condWeak.Add(source, new ConditionalTarget());
 
         TestStruct[] structArray = new TestStruct[100];
         fixed (TestStruct* ptr = &structArray[50])
@@ -13,6 +18,8 @@ internal unsafe class Program
         }
 
         GC.KeepAlive(structArray);
+        GC.KeepAlive(condWeak);
+        GC.KeepAlive(source);
     }
 
     private static void BlockFQ()
@@ -59,4 +66,7 @@ struct TestStruct
 {
     public int a, b, c;
 }
+
+class ConditionalSource { }
+class ConditionalTarget { }
 
